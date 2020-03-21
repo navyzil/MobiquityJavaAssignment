@@ -11,6 +11,10 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * Integration Test for Packer Class
+ */
 public class PackerTest {
     private URI filePathUri;
     private URI filePathUri2;

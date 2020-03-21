@@ -11,12 +11,24 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * Packer - The main api class for processing Package Information from file and converting it into String
+ * The convertes String will be used for other purposes
+ */
 public class Packer {
     private static Logger LOGGER = LoggerFactory.getLogger(Packer.class);
 
     private Packer() {
     }
 
+    /**
+     * Converts package information from the file to String
+     * This will give the total number of packages and the index number of each package
+     * @param filePath - File path of the package information stored in file
+     * @return String - The total number of packages and the index number of each package
+     * @throws APIException - Throws APIException if the package or items doesn't pass the validation
+     */
     public static String pack(String filePath) throws APIException {
         LOGGER.info("Processing Package Information from file:{}", filePath);
 
@@ -30,6 +42,11 @@ public class Packer {
         return packageInfo;
     }
 
+    /**
+     * Validates each Packages and each of its items
+     * @param packageList - List of Packages
+     * @throws APIException - Throws APIException if the package or items doesn't pass the validation
+     */
     private static void validatePackages(List<Package> packageList) throws APIException {
         PackageValidator packageValidator = PackageValidator.getInstance();
         for (Package pckage : packageList) {

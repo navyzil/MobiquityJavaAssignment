@@ -2,6 +2,11 @@ package com.mobiquity.entities;
 
 import java.util.List;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * Package Entity
+ * Holds the information about the package
+ */
 public class Package {
    private int weight;
    private List<Item> itemList;

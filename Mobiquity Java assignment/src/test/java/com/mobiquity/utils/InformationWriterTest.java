@@ -13,6 +13,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * Test for InformationWriter Utility Class
+ */
 public class InformationWriterTest {
     private List<Package> packageList;
 

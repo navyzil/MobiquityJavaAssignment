@@ -12,6 +12,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * Test for PackageValidator Helper Class
+ */
 public class PackageValidatorTest {
     private Package pckage;
     private List<Item> itemList;

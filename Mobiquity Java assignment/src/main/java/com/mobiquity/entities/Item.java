@@ -1,7 +1,10 @@
 package com.mobiquity.entities;
 
-import java.math.BigDecimal;
-
+/**
+ * @author Denzil Gideon M. Daulo
+ * Item Entity
+ * Holds the information about the items in the package
+ */
 public class Item {
     private int indexNumber;
     private double weight;

@@ -8,6 +8,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * @author Denzil Gideon M. Daulo
+ * PackageValidator -Validates the Package and Package's Items
+ * Uses a singleton pattern so it will be initialized only once
+ */
 public class PackageValidator {
     private static Logger LOGGER = LoggerFactory.getLogger(PackageValidator.class);
 
@@ -16,6 +21,10 @@ public class PackageValidator {
     private PackageValidator() {
     }
 
+    /**
+     * PackageValidator object initializer
+     * @return PackageValidator instance
+     */
     public static PackageValidator getInstance() {
         LOGGER.info("Initializing PackageValidator");
 
@@ -25,6 +34,11 @@ public class PackageValidator {
         return instance;
     }
 
+    /**
+     * Validates Package weight.
+     * @param pckage - Instance of Package
+     * @throws APIException -  If weight reaches more than 100 then it will throw an APIException
+     */
     public void validatePackageMaxWeight(Package pckage) throws APIException {
         LOGGER.info("Validating Package Weight");
         if (pckage.getWeight() > 100) {
@@ -33,6 +47,11 @@ public class PackageValidator {
         }
     }
 
+    /**
+     * Validates Package's number of items.
+     * @param pckage - Instance of Package
+     * @throws APIException -  If Package contains more than 15 items it will throw an APIException
+     */
     public void validatePackageNumberOfItems(Package pckage) throws APIException {
         LOGGER.info("Validating Package number of Items");
         int packageItemSize = pckage.getItemList().size();
@@ -42,6 +61,11 @@ public class PackageValidator {
         }
     }
 
+    /**
+     * Validates Weight and Price of each Items in a Package.
+     * @param items - List of items in the Package
+     * @throws APIException -  If the Item has exceeded the weight or cost limit
+     */
     public void validateItemsMaxWeightAndPrice(List<Item> items) throws APIException {
         LOGGER.info("Validating Package Items");
         for (Item item : items) {
@@ -49,6 +73,11 @@ public class PackageValidator {
         }
     }
 
+    /**
+     * Validates Weight and Price of the Item in a Package.
+     * @param item - Instance of an Item
+     * @throws APIException -  If the Item has exceeded the weight or cost limit
+     */
     private void validateItemWeightAndPrice(Item item) throws APIException {
         boolean itemNotExceededMaxWeight = isItemNotExceededMaxWeight(item);
         boolean isItemNotExceededMaxPrice = isItemNotExceededMaxPrice(item);
@@ -63,10 +92,20 @@ public class PackageValidator {
         }
     }
 
+    /**
+     * Checks if Item Weight exceeded 100 or not
+     * @param item - Instance of an Item
+     * @return boolean - true if weight is lessthan or equal 100. Otherwise false
+     */
     private static boolean isItemNotExceededMaxWeight(Item item) {
         return item.getWeight() <= 100 ? true : false;
     }
 
+    /**
+     * Checks if Item Price exceeded 100 or not
+     * @param item - Instance of an Item
+     * @return boolean - true if price is lessthan or equal 100. Otherwise false
+     */
     private static boolean isItemNotExceededMaxPrice(Item item) {
         String priceAsString = item.getPrice()
                 .replaceAll("[^\\d.,]","")
