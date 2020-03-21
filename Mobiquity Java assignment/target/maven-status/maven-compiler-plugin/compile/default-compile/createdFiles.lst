@@ -1,0 +1,6 @@
+com\mobiquity\exception\APIException.class
+com\mobiquity\entities\Item.class
+com\mobiquity\utils\PackageProcessor.class
+com\mobiquity\entities\Package.class
+com\mobiquity\packer\Packer.class
+com\mobiquity\utils\FileReader.class
